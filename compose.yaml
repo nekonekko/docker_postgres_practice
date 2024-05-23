@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: docker_postgres_practice
+    restart: always
+    volumes:
+      - ./script:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: /run/secrets/db_password
+    secrets:
+      - db_password
+
+secrets:
+  db_password:
+    file: .db_password.txt
