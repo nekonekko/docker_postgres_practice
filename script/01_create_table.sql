@@ -13,11 +13,16 @@ CREATE TABLE
 
 CREATE TABLE
     reserves (
-        sname CHAR(10),
+        sid INTEGER,
         bid INTEGER,
         DAY DATE,
-        PRIMARY KEY (bid, DAY)
+        PRIMARY KEY (sid, bid)
     );
 
 CREATE TABLE
-    boats (bid INTEGER, bname CHAR(10), color CHAR(10));
+    boats (
+        bid INTEGER,
+        bname CHAR(10),
+        color CHAR(10),
+        PRIMARY KEY (bid)
+    );
